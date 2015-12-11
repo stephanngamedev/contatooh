@@ -11,5 +11,18 @@ module.exports = function() {
 		res.json( contatos );
 	};
 
+	controller.mostraContato = function( req, res) {
+		var idContato = req.params.id;
+		var contato = contatos.filter( function(contato) {
+			return contato._id == idContato;
+		})[0];
+
+		if( contato ){
+			res.json( contato );
+		}else{
+			res.status( 404 ).send( 'Contato não encontrado' );
+		}
+	}
+
 	return controller
 }
