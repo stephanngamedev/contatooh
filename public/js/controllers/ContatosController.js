@@ -5,6 +5,7 @@ angular.module( 'contatooh' ).controller( 'ContatosController', function( $scope
 		$scope.total++;
 	};
 
+	$scope.filtro = ''
 	$scope.contatos = [
 		{
 			"_id": 1,
