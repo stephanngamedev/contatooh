@@ -4,14 +4,18 @@ angular.module( 'contatooh' ).controller( 'ContatosController',
 	
 		$scope.filtro = '';
 
+		$scope.mensagem = { texto: '' };
+
 		var Contato = $resource('/contatos/:id');
 
 		function buscaContatos() {
 			Contato.query(
 				function( contatos ) {
 					$scope.contatos = contatos;
+					$scope.mensagem = {}
 				},
 				function( error ) {
+					$scope.mensagem = { texto: 'Não foi possível listar os contatos.'}
 					console.log( error );
 				}
 			);	
@@ -21,6 +25,7 @@ angular.module( 'contatooh' ).controller( 'ContatosController',
 			Contato.delete({ id: contato._id },
 				buscaContatos,
 				function( error ) {
+					$scope.mensagem = { texto: 'Não foi possível deletar o contato.'}
 					console.log( error );
 				});
 		};
