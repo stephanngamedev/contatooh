@@ -22,7 +22,7 @@ module.exports = function() {
 		}else{
 			res.status( 404 ).send( 'Contato não encontrado' );
 		}
-	}
+	};
 
 	controller.removeContato = function( req, res ) {
 		var idContato = req.params.id;
@@ -32,7 +32,7 @@ module.exports = function() {
 		});
 
 		res.status( 204 ).end();
-	}
+	};
 
 	return controller
 }

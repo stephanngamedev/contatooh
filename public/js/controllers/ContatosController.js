@@ -16,5 +16,7 @@ angular.module( 'contatooh' ).controller( 'ContatosController',
 				}
 			);	
 		};
+
+		buscaContatos();
 	}
 );
