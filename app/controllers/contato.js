@@ -4,7 +4,7 @@ module.exports = function( app ) {
 	var Contato = app.models.contato;
 
 	controller.listaContatos = function( req, res ) {
-		Contato.find( function( error, contatos ){
+		Contato.find().populate( 'emergencia' ).exec(function( error, contatos ){
 			if( error ){
 				console.log(error);
 				res.status(500).json( error );
@@ -34,7 +34,7 @@ module.exports = function( app ) {
 		var _id = req.body._id;
 
 		req.body.emergencia = req.body.emergencia || null;
-		
+
 		if( _id ){
 			Contato.findByIdAndUpdate(_id, req.body, function( error, contato ) {
 				if( error ){
