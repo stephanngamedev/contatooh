@@ -1,0 +1,14 @@
+#use passport.js
+
+var passport = require('passport');
+var GitHubStrategy = require('passport-github').Strategy;
+
+module.exports = function() {
+	passport.use( new GitHubStrategy({
+		clientId: 'CLIENT ID AQUI',
+		clientSecret: 'CLIENT SECRET AQUI',
+		callbackURL: 'CALLBACK URL AQUI'
+	}), function( accessToken, refreshToken, profile, done ) {
+		
+	});
+}
